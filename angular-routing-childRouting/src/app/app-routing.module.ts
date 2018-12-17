@@ -20,9 +20,11 @@ const router: Routes = [
    { path: 'home', component: HomeComponent },
    { path: 'about', component: AboutComponent,
       children : [
-          { path: "child-one", component: AboutChildOneComponent },
-          { path: "child-two", component: AboutChildTwoComponent },
-          { path: "child-three", component: AboutChildThreeComponent }
+          { path: '', redirectTo: 'child-one', pathMatch: 'full' },
+          { path: 'child-one', component: AboutChildOneComponent },
+          { path: 'child-two', component: AboutChildTwoComponent },
+          { path: 'child-three', component: AboutChildThreeComponent },
+          { path: '**', component: AboutChildOneComponent }   
       ]
     },
    { path: 'products', component: ProductsComponent },

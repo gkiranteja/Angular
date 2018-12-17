@@ -14,8 +14,4 @@ export class AboutComponent implements OnInit {
     
   }
 
-   aboutOneHandler(){
-    this._router.navigate(['child-one'], {relativeTo: this._router});
-  }
-
 }
