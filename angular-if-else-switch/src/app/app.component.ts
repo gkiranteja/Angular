@@ -6,14 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title = 'angular-if-else-switch';
 
-  title = "Testing App";
+displayname = true;
 
-  public person = {
-     "firstname" : "kiran",
-     "lastname" : "teja"
-  }
-
-  public date = new Date();
+color = 'asdas';
 
 }

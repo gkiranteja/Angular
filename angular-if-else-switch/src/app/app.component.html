@@ -1,0 +1,28 @@
+<h2>ngIf - else - Switch</h2>
+
+<!-- ngIf and else -->
+
+<h2 *ngIf="displayname">Hello Kiranteja</h2>
+<h2 *ngIf="false">Hello Kiranteja</h2>
+
+<h2 *ngIf="displayname; else elseblock"> Hai Kiran </h2>
+
+<h2 *ngIf="displayname; then thenblock; else elseblock"> Hai Kiran </h2>
+
+<ng-template #thenblock>
+    <h2>heloo teja</h2>
+</ng-template>
+
+<ng-template #elseblock>
+    <h2>Else block is exist</h2>
+</ng-template>
+
+
+<!-- switch -->
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">you picked red</div>
+    <div *ngSwitchCase="'green'">you picked green</div>
+    <div *ngSwitchCase="'blue'">you picked blue</div>
+    <div *ngSwitchDefault>Pick again</div>
+</div>
