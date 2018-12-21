@@ -1,0 +1,117 @@
+<div class="reactive_form_wrapper">
+    <div class="container">
+        <div class="reactive_form_container">
+            <h2>Reactive form with validations</h2>
+            <p>{{profileForm.value | json}}</p> <br>
+            <p>{{profileForm.status}}</p>
+
+            <form [formGroup]="profileForm" (ngSubmit)="submitData()">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" formControlName="fname" [class.is-invalid]="firstName.invalid && firstName.touched">
+                    <!-- <small [class.d-none]="firstName.valid || firstName.untouched" class="text-danger">First name required</small> -->
+                    <div *ngIf="firstName.invalid && firstName.touched">
+                        <small *ngIf="firstName.errors?.required" class="text-danger">First name is required</small>
+                        <small *ngIf="firstName.errors?.minlength" class="text-danger">Min length is 3 charecters</small>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" formControlName="lname" [class.is-invalid]="lastName.invalid && lastName.touched">
+                    <div *ngIf="lastName.invalid && lastName.touched">
+                        <small *ngIf="lastName.errors?.required" class="text-danger">Last name is required</small>
+                        <small *ngIf="lastName.errors?.minlength" class="text-danger">Min lenght is 3 charecters</small>
+                        <small *ngIf="lastName.errors?.maxlength" class="text-danger">Max lenght is 6 charecters</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" formControlName="email" [class.is-invalid]="email.invalid && email.touched">
+                    <div *ngIf="email.invalid && email.touched">
+                        <small *ngIf="email.errors?.required">Email is required</small>
+                        <small *ngIf="email.errors?.email">Please enter correct email is</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="text" class="form-control" id="pwd" name="pwd" placeholder="Password" formControlName="pwd" [class.is-invalid]="password.invalid && password.touched">
+                    <div *ngIf="password.invalid && password.touched">
+                        <small *ngIf="password.errors?.required">Password is required</small>
+                        <small *ngIf="password.errors?.minlength">Password contains 6 charecters</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cpwd">Confirm Password</label>
+                    <input type="text" class="form-control" id="cpwd" name="cpwd" placeholder="Confirm Password" formControlName="cpwd" [class.is-invalid]="profileForm.errors?.mismatch">
+
+                    <div>
+                        <small class="text-danger" *ngIf="profileForm.errors?.mismatch">Your password doesn't match</small>
+                    </div>
+
+                </div>
+                <div class="reactive_gender">
+                    <h4>Gender</h4>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" value="male" checked> Male
+                    </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" value="female"> Female
+                    </label>
+                    </div>
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <label for="sel1">Select your designation</label>
+                    <select class="form-control" id="sel1" formControlName="selectDesignation" [class.is-invalid]="selectDesignation.invalid && selectDesignation.touched">
+                            <option value=''>Select below options</option>
+                            <option value="ui developer">UI developer</option>
+                            <option value="dotNet developer">dotNet developer</option>
+                            <option value="Java developer">Java developer</option>
+                            <option value="Drupal developer">Drupal developer</option>
+                        </select>
+                    <div *ngIf="selectDesignation.invalid && selectDesignation.touched">
+                        <small *ngIf="selectDesignation.errors?.required">Designation is required</small>
+                    </div>
+                </div>
+                <div class="form_address" formGroupName="address">
+                    <h4>Address</h4>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state" name="state" placeholder="State" formControlName="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="City" formControlName="city">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" rows="3" id="comment" name="comment" formControlName="comment"></textarea>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="remember" id="remember" formControlName="remember" [class.is-invalid]="remember.invalid && remember.touched"> Remember me</label>
+                </div>
+                <div class="reactive_multiple_fields">
+                    <label>Dynamic form field</label><br>
+                    <button class="btn btn-success" (click)="addAlternativePhone()">Click to Add Dynamic Form</button><br><br>
+                    <input type="text" name="phone" class="form-control" id="phone" formControlName="phone">
+                    <div formArrayName="alternativePhone" *ngFor="let phoneNumber of alternativePhone.controls; let i=index">
+                        <input type="text" class="form-control" [formControlName]="i">
+                    </div>
+
+                </div>
+                <br>
+                <div class="reactive_form_btn">
+                    <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit</button> &nbsp; &nbsp; &nbsp;
+                    <button type="btn" class="btn btn-success" (click)="update()">Update</button>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>

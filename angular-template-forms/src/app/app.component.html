@@ -1,0 +1,66 @@
+<div class="container">
+    <h2>Template Driven form example</h2>
+    <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+
+        <!--{{userForm.value | json}}
+        <hr> {{userModel | json}}-->
+
+        <!--{{userForm.form.invalid}}-->
+
+        <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" class="form-control" #fName="ngModel" [class.is-invalid]="fName.invalid && fName.touched" id="fname" name="fname" [(ngModel)]="userModel.fname" required> {{fName.className}}
+            <small class="text-danger" [class.d-none]="fName.valid || fName.untouched">First Name is required</small>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userModel.email">
+        </div>
+        <div class="form-group">
+            <label for="tel">Phone Number:</label>
+            <input type="tel" class="form-control" id="tel" name="tel" [(ngModel)]="userModel.tel" #phone="ngModel" pattern="^\d{10}$" required [class.is-invalid]="phone.invalid && phone.touched">
+            <!--<small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone number is required and must be 10 numbers</small>-->
+            <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+                <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
+                <small class="text-danger" *ngIf="phone.errors.pattern">Phone number should contains 10 digits</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sel1">Select list:</label>
+            <select (blur)="validateCourse(course.value)" (change)="validateCourse(course.value)" class="form-control" id="course" name="course" #course="ngModel" [class.is-invalid]="topicHasClass && course.touched" [(ngModel)]="userModel.course">
+                <option value="default">Please select one topic</option>
+                <option *ngFor="let course of courses">{{course}}</option>
+            </select>
+            <small class="text-danger" [class.d-none]="!topicHasClass || course.untouched">Please select one option atleast</small>
+        </div>
+        <div class="form_check">
+            <label>Gender :- &nbsp;&nbsp;&nbsp;</label>
+            <div class="form-check-inline">
+                <label class="form-check-label" for="radio1">
+                    <input type="radio" class="form-check-input" [(ngModel)]="userModel.gender" id="radio1" name="gender" value="male" checked>Male
+                </label>
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label" for="radio2">
+                    <input type="radio" class="form-check-input" [(ngModel)]="userModel.gender" id="radio2" name="gender" value="female">Female
+                </label>
+            </div>
+        </div>
+        <div ngModelGroup="address">
+            <div class="form-group">
+                <label for="sttate">State:</label>
+                <input type="text" class="form-control" id="state" name="state" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name="city" ngModel>
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="subscribe" [(ngModel)]="userModel.subscribe"> Remember me
+            </label>
+        </div>
+        <button type="submit" [disabled]="userForm.form.invalid" class="btn btn-primary">Submit</button>
+    </form>
+</div>
