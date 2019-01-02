@@ -1,0 +1,26 @@
+<div class="container">
+    <br>
+    <h3>Password and Confirm Password, Selectbox Validation</h3>
+    <p>{{ customValidation.value | json }}</p>
+    <p>{{ customValidation.status }}</p>
+    <form [formGroup]="customValidation" (ngSubmit)="formData()">
+        <div class="form-group">
+            <label for="pwd">Password</label>
+            <input type="text" class="form-control" placeholder="Password" name="pwd" id="pwd" formControlName="pwd" [class.is-invalid]="password.invalid && password.touched">
+            <div *ngIf="password.invalid && password.touched">
+                <small class="text-danger" *ngIf="password.errors?.required">Password is required</small>
+                <small class="text-danger" *ngIf="password.errors?.minlength">Min Length is 4 charectors</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cpwd">Confirm Password</label>
+            <input type="text" class="form-control" placeholder="Confirm Password" name="cpwd" id="cpwd" formControlName="cpwd" [class.is-invalid]="customValidation.errors?.misMatch">
+            <div>
+                <small class="text-danger" *ngIf="customValidation.errors?.misMatch">Password do not match</small>
+            </div>
+        </div>
+        <div class="btn_group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
