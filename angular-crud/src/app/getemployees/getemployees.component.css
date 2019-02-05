@@ -1,0 +1,31 @@
+.col-sm-4{width:33.33%;float: left;}
+.red{color:red;}
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: #32383e;
+}
+.table-dark th, .table-dark thead th {
+    background-color: rgba(255,255,255,.075);
+}
+.table-dark, .table-dark a {
+    color: #fff;
+    background-color: #212529;
+}
+.table-dark.table-hover tbody tr:hover {
+    background-color: rgba(255,255,255,.075);
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 2px;
+  margin: 15px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+button a{color: #fff;}
+button:hover {
+  opacity: 0.8;
+}
+.pagination li{list-style: none;float: left;}
+.pagination li a{border:1px solid #ccc;padding: 5px 10px;display: block;margin: 5px;}
+.pagination li a.active{background: #00b7ff; color: #fff}

@@ -1,0 +1,28 @@
+.col-sm-4{width:33.33%;float: left;}
+.red{color:red;}
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: #32383e;
+}
+.table-dark th, .table-dark thead th {
+    background-color: rgba(255,255,255,.075);
+}
+.table-dark, .table-dark a {
+    color: #fff;
+    background-color: #212529;
+}
+.table-dark.table-hover tbody tr:hover {
+    background-color: rgba(255,255,255,.075);
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 2px;
+  margin: 15px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+button a{color: #fff;}
+button:hover {
+  opacity: 0.8;
+}

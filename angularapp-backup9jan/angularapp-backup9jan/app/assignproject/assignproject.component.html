@@ -1,0 +1,22 @@
+
+<form [formGroup]="projectform" (ngSubmit)="onSubmit()">
+  <div class="container"><h1 class="text-center">{{ tittle }}</h1>
+<div class="form-group">
+    <label for="pcode"><b>Project Name</b></label> 
+    <select formControlName="pname">
+      <option *ngFor="let item of mylist">{{ item.pname }}</option>
+      </select >
+    </div>
+<div class="form-group">
+    <label for="pname"><b>Employee Name</b></label> 
+    <select formControlName="empname">
+      <option *ngFor="let item of emplist">{{ item.empname }}</option>
+      </select >
+    </div>
+    
+    <div class="form-group">
+    <button type="submit">Assign Project</button>
+</div>
+  </div>
+
+</form>

@@ -19,6 +19,7 @@ export class AppComponent {
 
   formData(){
      console.log(this.passwordComfirm.value);
+     //hai 
   }
 
 }

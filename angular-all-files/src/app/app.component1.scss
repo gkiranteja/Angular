@@ -1,0 +1,10 @@
+h2{
+    padding: 30px;
+    border: 1px solid #333;
+}
+
+@mixin border-radius($radius){
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+}

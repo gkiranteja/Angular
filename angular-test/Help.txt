@@ -1,0 +1,6 @@
+Lists available commands and their short descriptions.
+usage: ng help [options]
+
+options:
+  --help 
+    Shows a help message for this command in the console.

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="col-sm-9"><h1 class="text-center">{{ tittle }}</h1></div>
+  <div class="col-sm-3">
+  <button><a [routerLink]="['/']">Add New</a></button>
+</div></div>
+<div class="container" *ngIf="(myprojects.length > 0)">
+  
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Project Code</th>
+      <th scope="col">Project Name</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of mylist">
+      <th scope="row">{{ item.id }}</th>
+      <td>{{ item.pcode }}</td>
+      <td>{{ item.pname }}</td>
+      <td><p (click)="deleteproject(item.id)">Delete</p></td>
+      <td><p><a [routerLink]="['/edit/id', item.id]">Edit</a></p></td>
+    </tr>
+      </tbody>
+</table>
+
+<div class="container" *ngIf="(myprojects.length == 0)">
+  <h2 class="red">No Data Found</h2>
+</div>

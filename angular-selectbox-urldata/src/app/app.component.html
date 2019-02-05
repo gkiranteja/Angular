@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Form control: select box</h2>
+  <form>
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1">
+        <option>1</option>
+        <option *ngFor="let value of selectData">{{ value | json }}</option>
+      </select>
+    </div>
+    <h1>{{ selectData.business_function | json }}</h1>
+  </form>
+
+  <ul>
+    <li *ngFor="let value of selectDataaaa">{{ value }}</li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,19 @@
+@import 'app.component1';
+
+$primary-color: red;
+$primary-font-size: 30px;
+
+.call{
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+h2{
+    color: $primary-color;
+    font-size: $primary-font-size;
+    margin: 10px 0px;
+    @include border-radius(20px);
+    @extend .call;
+    width: 100% / 50%;
+}
+

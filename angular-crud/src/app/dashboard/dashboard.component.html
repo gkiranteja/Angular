@@ -1,0 +1,28 @@
+
+    <div class="container dashboard"><h1 class="text-center">{{ tittle }}</h1>
+  <div class="col-sm-4 one text-center" [routerLink]="['/viewprojects']">
+      <div class="col-sm-12 ">
+        <h2>Total Projects</h2>
+        <h3 class="">{{ prjlist.length }}</h3>
+      </div>
+      </div>
+      <div class="col-sm-4 two text-center" [routerLink]="['/emplist/id/0']">
+          <div class="col-sm-12 ">
+              <h2>Total Employess</h2>
+              <h3>{{ emplist.length }}</h3>
+            </div>
+      </div>
+      
+      <div class="col-sm-4 three">
+          <div class="col-sm-12 text-center">
+              <h2>Assigned Employess</h2>
+              <h3>{{ emplist.length }}</h3>
+            </div>
+  </div>
+  <div *ngIf="chart">
+      <canvas id="canvas">{{ chart }}</canvas>
+    </div>
+    </div>
+  
+
+  

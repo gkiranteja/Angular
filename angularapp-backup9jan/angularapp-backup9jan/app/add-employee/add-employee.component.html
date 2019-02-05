@@ -1,0 +1,18 @@
+
+<form [formGroup]="projectform" (ngSubmit)="onSubmit()">
+  <div class="container"><h1 class="text-center">{{ tittle }}</h1>
+<div class="form-group">
+    <label for="empcode"><b>Employee Code</b></label>
+    <input type="text" placeholder="Enter Employee Code" formControlName="empcode">
+    </div>
+<div class="form-group">
+    <label for="empname"><b>Employee Name</b></label>
+    <input type="text"  placeholder="Enter Employee Name" formControlName="empname">
+    </div>
+        <div class="form-group">
+    <button type="submit">Add Employee</button>
+</div>
+  </div>
+
+
+</form>

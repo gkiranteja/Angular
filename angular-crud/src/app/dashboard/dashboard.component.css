@@ -1,0 +1,21 @@
+.dashboard .col-sm-4{border: 1px solid #ccc;margin: 0 10px;}
+.dashboard .col-sm-4{
+border-radius: 5px;
+box-shadow: 0 0 5px 0 rgba(43,43,43,0.1), 0 11px 6px -7px rgba(43,43,43,0.1);
+border: none;
+margin-bottom: 30px;
+-webkit-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+width: 30% !important;
+cursor: pointer;
+}
+.dashboard .col-sm-4 h2{font-size:18px; color: #fff;}
+.one{
+    background: #FF5370;
+}
+.two{
+background: #4099ff;
+}
+.three{
+    background: #2ed8b6;
+    }
